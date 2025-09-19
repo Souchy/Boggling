@@ -20,8 +20,6 @@ export class Board {
 	resetSelection() {
 		this.selected = this.grid.map(row => row.map(() => false));
 		this.selectedWord = '';
-		console.log("selected:");
-		console.log(this.selected);
 	}
 
 	isSelectedCell(row: number, col: number) {
@@ -29,18 +27,7 @@ export class Board {
 		return this.selected[row][col];
 	}
 
-	// get currentWord() {
-	// 	const word: string[] = [];
-	// 	for (let i = 0; i < this.grid.length; ++i) {
-	// 		for (let j = 0; j < this.grid[i].length; ++j) {
-	// 			if (this.selected[i][j]) word.push(this.grid[i][j]);
-	// 		}
-	// 	}
-	// 	return word.join('');
-	// }
-
 	onCellMouseDown(row: number, col: number) {
-		console.log(`Mouse down on cell (${row}, ${col})`);
 		this.isSelecting = true;
 		this.resetSelection();
 		this.onCellMouseOver(row, col);
@@ -49,7 +36,6 @@ export class Board {
 	onCellMouseOver(row: number, col: number) {
 		if (!this.isSelecting || this.selected[row][col])
 			return;
-		console.log(`Mouse over cell (${row}, ${col}) = ${this.grid[row][col]}`);
 		// Optionally: check adjacency here
 		this.selected[row][col] = true;
 		this.selectedWord += this.grid[row][col];

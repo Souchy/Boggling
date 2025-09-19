@@ -5,8 +5,16 @@
 <board grid.bind="grid"></board>
 
 <div class="found-words">
-	<h3>Found Words:</h3>
-	<ul>
-		<li repeat.for="word of foundWords">${word}</li>
-	</ul>
+  <h3>Found Words (${foundWords.size}):</h3>
+  <ul>
+    <li repeat.for="word of foundWords">${word}</li>
+  </ul>
+</div>
+
+
+<div class="possible-words">
+  <h3>Possible Words (${possibleWords.size}):</h3>
+  <ul>
+    <li repeat.for="word of possibleWords">${word}</li>
+  </ul>
 </div>
