@@ -1,0 +1,58 @@
+board {
+	.board_table {
+		border-collapse: collapse;
+		margin: 20px 0;
+
+		user-select: none;
+		/* Standard */
+		-webkit-user-select: none;
+		/* Safari */
+		-ms-user-select: none;
+		/* IE10+/Edge */
+		-moz-user-select: none;
+		/* Firefox */
+	}
+
+	// .board_cell {
+	// 	border: 1px solid #333;
+	// 	width: 40px;
+	// 	height: 40px;
+	// 	text-align: center;
+	// 	font-size: 2em;
+	// 	font-family: monospace;
+	// 	background: #fafafa;
+	// }
+
+	.board_table td {
+		width: 55px;
+		height: 55px;
+		padding: 0;
+		text-align: center;
+		vertical-align: middle;
+		/* Optional: Add a background to see the full cell area */
+	}
+
+	.board_cell {
+		// border: 2px solid #ccc; // debug
+		width: 40px;
+		/* much smaller than td */
+		height: 40px;
+		line-height: 40px;
+		margin: auto;
+		background: #fff;
+		border-radius: 8px;
+		box-shadow: 0 1px 3px #0002;
+		font-size: 1.5em;
+		user-select: none;
+		/* Center the cell inside td */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+
+	.board_table td.selected {
+		background: #aef;
+		// border: 2px solid #39f;
+	}
+}

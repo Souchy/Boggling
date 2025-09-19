@@ -1,0 +1,12 @@
+<div class="message">${message}</div>
+
+<button click.trigger="play()">Play</button>
+
+<board grid.bind="grid"></board>
+
+<div class="found-words">
+	<h3>Found Words:</h3>
+	<ul>
+		<li repeat.for="word of foundWords">${word}</li>
+	</ul>
+</div>
