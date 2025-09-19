@@ -5,7 +5,7 @@ import aurelia from '@aurelia/vite-plugin';
 export default defineConfig({
   server: {
     open: !process.env.CI,
-    port: 9000,
+    port: 7070,
   },
   esbuild: {
     target: 'es2022'

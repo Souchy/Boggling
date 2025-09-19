@@ -1,4 +1,5 @@
 import { bindable, IEventAggregator, inject } from "aurelia";
+import { Cell, WordSelection } from "../../core/cell";
 
 
 // Boggle game board
@@ -6,9 +7,9 @@ import { bindable, IEventAggregator, inject } from "aurelia";
 export class Board {
 
 	@bindable
-	private grid: string[][];
+	private grid: Cell[][];
 	private selected: boolean[][] = [];
-	private selectedWord = '';
+	private selectedWord: WordSelection = new WordSelection();
 	private isSelecting = false;
 
 	constructor(private ea: IEventAggregator) { }
@@ -19,7 +20,7 @@ export class Board {
 
 	resetSelection() {
 		this.selected = this.grid.map(row => row.map(() => false));
-		this.selectedWord = '';
+		this.selectedWord = new WordSelection();
 	}
 
 	isSelectedCell(row: number, col: number) {
@@ -38,13 +39,14 @@ export class Board {
 			return;
 		// Optionally: check adjacency here
 		this.selected[row][col] = true;
-		this.selectedWord += this.grid[row][col];
+		this.selectedWord.addCell(this.grid[row][col]);
+		this.selected = [...this.selected];
 	}
 
 	onMouseUp() {
 		this.isSelecting = false;
 		// Do something with currentWord (e.g., check validity)
-		this.ea.publish('wordSelected', this.selectedWord);
+		this.ea.publish('wordSelected', this.selectedWord.word());
 		this.resetSelection();
 	}
 

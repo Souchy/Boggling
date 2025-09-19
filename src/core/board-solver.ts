@@ -1,3 +1,4 @@
+import { Cell } from "./cell";
 import { Trie } from "./trie";
 
 const directions = [
@@ -7,7 +8,8 @@ const directions = [
 ];
 
 export class BoardSolver {
-	static findWords(board: string[][], trie: Trie): Set<string> {
+
+	static findWords(board: Cell[][], trie: Trie): Set<string> {
 		const found = new Set<string>();
 		const size = board.length;
 		const visited = Array.from({ length: size }, () => Array(size).fill(false));
@@ -18,7 +20,7 @@ export class BoardSolver {
 				visited[x][y]
 			) return;
 
-			const word = prefix + board[x][y].toLowerCase();
+			const word = prefix + board[x][y].letter.toLowerCase();
 			if (!trie.isPrefix(word)) return;
 
 			visited[x][y] = true;
@@ -37,4 +39,5 @@ export class BoardSolver {
 		}
 		return found;
 	}
+	
 }

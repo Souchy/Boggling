@@ -1,7 +1,7 @@
 <table class="board_table" mouseup.trigger="onMouseUp()" mouseleave.trigger="onMouseLeave()">
   <tr repeat.for="row of grid">
     <td repeat.for="cell of row" class="${selected[$parent.$index][$index] ? 'selected' : ''}">
-      <div class="board_cell" mousedown.trigger="onCellMouseDown($parent.$index, $index)" mouseover.trigger="onCellMouseOver($parent.$index, $index)">${cell}</div>
+      <div class="board_cell" mousedown.trigger="onCellMouseDown($parent.$index, $index)" mouseover.trigger="onCellMouseOver($parent.$index, $index)">${cell.letter}</div>
     </td>
   </tr>
 </table>
